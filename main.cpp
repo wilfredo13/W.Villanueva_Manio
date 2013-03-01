@@ -24,11 +24,12 @@ const string problem[] = {
     "Maximum Path Sum 1",
     "Counting Sundays",
     "Factorial Digit Sum",
+    "Name Scores",
     "Exit"
 };
 
 const int NUM_PROBLEMS = 1;
-const int EXIT = (NUM_PROBLEMS + 20);
+const int EXIT = (NUM_PROBLEMS + 21);
 
 
 using namespace std;
@@ -146,6 +147,11 @@ int main()
             case 20:
             cout << endl << endl;
             proj.factorial_digit_sum();
+            break;
+
+            case 21:
+            cout << endl << endl;
+            proj.name_scores();
             break;
 
             case EXIT:

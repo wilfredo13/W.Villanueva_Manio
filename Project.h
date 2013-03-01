@@ -21,6 +21,9 @@ class Project
         void FileRead(string const& fileName, Array& list);
         void carryNum(vector<int> & vect);
         void factorial(vector<int> & vect, int num);
+        bool strCmp(string x, string y);
+        int getScore(string s);
+        int getTotalScore(vector<string> names);
 
         void multiples_of_3_and_5();
         void even_Fibonacci();
@@ -42,6 +45,7 @@ class Project
         void max_path_sum_one();
         void counting_sundays();
         void factorial_digit_sum();
+        void name_scores();
 
 
     protected:

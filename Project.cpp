@@ -1,13 +1,15 @@
 #include "Project.h"
 #include <iostream>
-#include <math.h>
-#include <string>
 #include <fstream>
-#include <sstream>
 #include <vector>
 #include <algorithm>
+#include <cstdlib>
+#include <math.h>
+#include <string>
+#include <sstream>
 #define RANGE 1000000
 #define MAXIM_SOL 1000
+
 using namespace std;
 typedef vector<vector<int> > Array;
 
@@ -176,7 +178,20 @@ void Project::factorial(vector<int> & vect, int num)
     carryNum(vect);
 }
 
+int Project::getScore(string s) {
+    int score = 0;
+    for(unsigned int i = 0; i < s.length(); i++)
+        score += (((int) s.at(i)) - 64);
+    return score;
+}
 
+
+int Project::getTotalScore(vector<string> names) {
+    int total = 0;
+    for(unsigned int i = 0; i < names.size(); i++)
+        total += (getScore(names[i]) * (i+1));
+    return total;
+}
 /*
 ==================================================================================
 ==================================================================================
@@ -712,4 +727,35 @@ void Project::factorial_digit_sum(){
     }
     cout << "Factorial Digit Sum: " << digit_sum << endl;
 
+}
+
+//21
+void Project::name_scores(){
+
+    vector<string> names;
+    ifstream mgaPangalan("names.txt");
+
+    char charName;
+    string currName = "";
+
+    //get names from file
+    if(mgaPangalan.is_open()) {
+        while(!mgaPangalan.eof()) {
+            charName = mgaPangalan.get();
+
+            if(isalpha(charName))
+                currName.push_back(charName);
+            else {
+                if(!currName.empty()) {//store finished name
+                    names.push_back(currName);
+                    currName.clear();
+                }
+            }
+        }
+    }
+    mgaPangalan.close();
+    sort(names.begin(), names.end());
+
+    //count up name scores
+    cout << "The Total Scores is: " << getTotalScore(names) << endl;
 }
