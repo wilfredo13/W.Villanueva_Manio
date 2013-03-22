@@ -25,11 +25,13 @@ const string problem[] = {
     "Counting Sundays",
     "Factorial Digit Sum",
     "Name Scores",
+    "First 1000 Fibonacci",
+    "Truncatable Primes",
     "Exit"
 };
 
 const int NUM_PROBLEMS = 1;
-const int EXIT = (NUM_PROBLEMS + 21);
+const int EXIT = (NUM_PROBLEMS + 23);
 
 
 using namespace std;
@@ -152,6 +154,16 @@ int main()
             case 21:
             cout << endl << endl;
             proj.name_scores();
+            break;
+
+            case 22:
+            cout << endl << endl;
+            proj.first_1000_digit_fibonacci();
+            break;
+
+            case 23:
+            cout << endl << endl;
+            proj.truncatable_primes();
             break;
 
             case EXIT:
